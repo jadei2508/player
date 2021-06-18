@@ -33,7 +33,6 @@ class ViewController: UIViewController {
     var didSelectCellIndex = -1
     
     //MARK:- Closure -
-    var transmissTrackDuration: ((TimeInterval?)->())?
     var changePlayingState: (()->())?
     var changePlayingStateBack: (()->())?
     
@@ -95,7 +94,9 @@ class ViewController: UIViewController {
 //MARK: - TableView delegates -
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trackList?.count ?? 0
+        guard let count = trackList?.count else { return 0 }
+        
+        return count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -122,7 +123,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         guard segue.identifier == "backToGeneral" else {return}
         trackList?[didSelectCellIndex].setIsDownloaded(isloaded: false)
         audioPlayer?.pause()
-//        audioPlayer?.currentTime = 0
         tableView.reloadData()
     }
     
@@ -138,28 +138,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Second" {
-            guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            let name = self.trackList?[indexPath.row].getName()
+            guard let indexPath = tableView.indexPathForSelectedRow,
+                  let name = trackList?[indexPath.row].getName(),
+                  let currentTrack = trackList?[indexPath.row] else { return }
             let isDownloaded = self.trackList?[indexPath.row].isDownloaded()
-            guard let isExists = isDownloaded else {
-                return
-            }
-            if isExists {
+            if currentTrack.isDownloaded() {
                 let secondView = segue.destination as? SecondViewController
                 guard var url = audioManager?.getDirectoryUrl() else {
                     return
                 }
-                
-                guard let name = name else {
-                    return
-                }
-//                url.absoluteString.split(separator: ".", maxSplits: 1, omittingEmptySubsequences: true)
-//                if url.absoluteString. == ".mp3" {
-//
-//                } else {
-//
-//                }
-//                url.deleteLastPathComponent()
+            
                 url.appendPathComponent(name)
                 secondView?.localURL = url
             }
@@ -188,7 +176,6 @@ private extension ViewController {
             cell.setSliderColor(color: defaultSliderColor)
             
             changePlayingState = {
-                print("changePlayingState")
                 cell.changePlayState()
             }
             
@@ -242,7 +229,7 @@ private extension ViewController {
             resetCellToZero(cell: cell, indexPath: indexPath)
 
             cell.transmissProgress(progress: Float(0.0))
-            if (self.trackList?[indexPath.row].isDownloaded()!)! {
+            if (self.trackList?[indexPath.row].isDownloaded())! {
                 finishAudioLoading(cell: cell)
             } else {
                 startAudioLoading(cell: cell, indexPath: indexPath)
@@ -255,6 +242,7 @@ private extension ViewController {
     
     func changeLoadingState(cell: MusicCompositionView, indexPath: IndexPath) {
         cell.startLoading = {
+            
             var url = self.audioManager?.getDirectoryUrl()
             if let name = self.trackList?[indexPath.row].getName() {
                 url?.appendPathComponent(name)
@@ -281,7 +269,6 @@ private extension ViewController {
             let time = self.audioPlayer?.getCurrentTime()
             self.audioPlayer?.continuePlay()
             self.audioTimer?.continuesTimer()
-//                            self.audioTimer?.play()
         }
     }
     
@@ -299,7 +286,6 @@ private extension ViewController {
             cell.setBaseAudioState()
             cell.setBaseMusicState()
             cell.switchPlayButton()
-//            self.changePlayingState?()
         }
     }
     

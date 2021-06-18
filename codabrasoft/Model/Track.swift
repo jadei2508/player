@@ -30,7 +30,8 @@ class Track {
     }
     
     //MARK: - Getter -
-    func isDownloaded() -> Bool? {
+    func isDownloaded() -> Bool {
+        guard let isloaded = isloaded else { return false }
         return isloaded
     }
     

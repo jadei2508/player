@@ -13,12 +13,18 @@ class AudioManager {
     
     func saveAudio(audioFile: Data, fileName: String) -> Bool {
         do {
-            fileUrl = directoryUrl.appendingPathComponent("\(fileName)")
-            try audioFile.write(to: fileUrl!)
+            fileUrl = directoryUrl.appendingPathComponent(fileName)
+            
+            guard let fileUrl = fileUrl else {
+                return false
+            }
+            
+            try audioFile.write(to: fileUrl)
+            
+            return true
         } catch {
-            print("error")
+            return false
         }
-        return true
     }
     
     func getFileUrl() -> URL? {

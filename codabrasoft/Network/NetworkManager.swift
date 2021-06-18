@@ -17,7 +17,7 @@ class NetworkManager {
     
     func loadAudio(url: String, complition: @escaping(_ data: Data?) -> ()) {
         currentRequest = AF.request(url)
-            .downloadProgress(closure: { [self] (progress) in
+            .downloadProgress(closure: { (progress) in
                 self.progressChange?(progress.fractionCompleted)
             })
             .responseData { response in

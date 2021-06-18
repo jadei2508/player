@@ -46,7 +46,7 @@ class MusicCompositionView: UITableViewCell {
     
     //MARK:- Init view -
     func initMusicView(name: String?, groupName: String?, loadingPercent: String? = "0.1%") {
-        self.musicName.text = name
+        musicName.text = name
         self.groupName.text = groupName
         self.loadingPercent.text = loadingPercent
     }
@@ -58,7 +58,7 @@ class MusicCompositionView: UITableViewCell {
     
     //MARK:- Loading audio function -
     @objc func loadHandler(_ tapGestureRecognizer: UITapGestureRecognizer? = nil) {
-        loadAudio!()
+        loadAudio?()
     }
     
     //MARK:- Hidden load button -
