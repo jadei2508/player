@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="MusicCompositionView" customModule="codabrasoft" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rfe-Mn-m3N">
+                    <rect key="frame" x="10" y="104" width="279" height="6"/>
+                    <color key="tintColor" systemColor="systemRedColor"/>
+                </progressView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MusicName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3R-fr-SRS">
+                    <rect key="frame" x="10" y="10" width="91" height="53"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="GroupName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6YO-pe-c6p">
+                    <rect key="frame" x="10" y="73" width="92" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loadingPercent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmy-CT-k5T">
+                    <rect key="frame" x="289" y="88" width="115" height="22"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" systemColor="systemGray3Color"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8YU-aq-Wb9">
+                    <rect key="frame" x="368" y="42" width="36" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="8YU-aq-Wb9" secondAttribute="height" multiplier="1:1" id="39C-T4-vaH"/>
+                    </constraints>
+                    <state key="normal" title="Start" image="pause">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="startLoad:" destination="iN0-l3-epB" eventType="touchUpInside" id="AVh-Z4-Hjl"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="8YU-aq-Wb9" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.3" id="2gF-1c-pHf"/>
+                <constraint firstItem="8YU-aq-Wb9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="2ga-gB-Kt2"/>
+                <constraint firstItem="rfe-Mn-m3N" firstAttribute="top" secondItem="6YO-pe-c6p" secondAttribute="bottom" constant="10" id="4Cg-dB-XwF"/>
+                <constraint firstItem="j3R-fr-SRS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Nl1-wj-gdU"/>
+                <constraint firstItem="j3R-fr-SRS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="OQh-gn-Agy"/>
+                <constraint firstItem="rfe-Mn-m3N" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Rka-gt-Q39"/>
+                <constraint firstItem="rfe-Mn-m3N" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.05" id="ZDC-1M-Mwe"/>
+                <constraint firstItem="wmy-CT-k5T" firstAttribute="top" secondItem="8YU-aq-Wb9" secondAttribute="bottom" constant="10" id="ZRm-4V-Rxw"/>
+                <constraint firstItem="6YO-pe-c6p" firstAttribute="top" secondItem="j3R-fr-SRS" secondAttribute="bottom" constant="10" id="Za9-xH-54M"/>
+                <constraint firstAttribute="bottom" secondItem="rfe-Mn-m3N" secondAttribute="bottom" constant="10" id="eQ6-nf-fNB"/>
+                <constraint firstAttribute="trailing" secondItem="8YU-aq-Wb9" secondAttribute="trailing" constant="10" id="ieb-Om-JyV"/>
+                <constraint firstItem="wmy-CT-k5T" firstAttribute="leading" secondItem="rfe-Mn-m3N" secondAttribute="trailing" id="jcf-OR-RDn"/>
+                <constraint firstItem="6YO-pe-c6p" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="tpc-e5-ECW"/>
+                <constraint firstAttribute="trailing" secondItem="wmy-CT-k5T" secondAttribute="trailing" constant="10" id="tyc-0I-zri"/>
+                <constraint firstAttribute="bottom" secondItem="wmy-CT-k5T" secondAttribute="bottom" constant="10" id="ykn-1E-SCg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="groupName" destination="6YO-pe-c6p" id="Kbn-jG-VoP"/>
+                <outlet property="indicatorView" destination="rfe-Mn-m3N" id="BaG-dO-MjB"/>
+                <outlet property="loadingPercent" destination="wmy-CT-k5T" id="McP-b0-7MJ"/>
+                <outlet property="musicName" destination="j3R-fr-SRS" id="pq6-Ff-CVZ"/>
+                <outlet property="startButton" destination="8YU-aq-Wb9" id="tY9-lu-lEL"/>
+            </connections>
+            <point key="canvasLocation" x="-256.52173913043481" y="-184.15178571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pause" width="225" height="225"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

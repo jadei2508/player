@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="PlayerView" customModule="codabrasoft">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="197"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroup" translatesAutoresizingMaskIntoConstraints="NO" id="F2c-gn-IcK">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="197"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Nzt-0P-7R0">
+                    <rect key="frame" x="145" y="36.5" width="124" height="124"/>
+                    <color key="tintColor" systemColor="secondaryLabelColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Nzt-0P-7R0" secondAttribute="height" multiplier="1:1" id="BpL-gn-iu0"/>
+                    </constraints>
+                </imageView>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="AFC-x7-ysT">
+                    <rect key="frame" x="18" y="167" width="338" height="31"/>
+                    <color key="tintColor" systemColor="systemGreenColor"/>
+                </slider>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebn-PR-Hwi">
+                    <rect key="frame" x="354" y="173" width="40" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <color key="textColor" systemColor="systemBackgroundColor"/>
+                    <nil key="highlightedColor"/>
+                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="F2c-gn-IcK" secondAttribute="bottom" id="4uP-g0-HcU"/>
+                <constraint firstItem="Nzt-0P-7R0" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.3" id="Mxm-ye-c4O"/>
+                <constraint firstItem="Ebn-PR-Hwi" firstAttribute="leading" secondItem="AFC-x7-ysT" secondAttribute="trailing" id="P0O-EU-zRK"/>
+                <constraint firstItem="Nzt-0P-7R0" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Tjs-eK-XsA"/>
+                <constraint firstAttribute="trailing" secondItem="F2c-gn-IcK" secondAttribute="trailing" id="Zrr-Nc-PE9"/>
+                <constraint firstItem="Nzt-0P-7R0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bSR-zp-rRu"/>
+                <constraint firstItem="F2c-gn-IcK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dY2-Zg-xvV"/>
+                <constraint firstItem="AFC-x7-ysT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="nVd-RT-SSO"/>
+                <constraint firstItem="F2c-gn-IcK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oWW-Cd-sj9"/>
+                <constraint firstAttribute="trailing" secondItem="Ebn-PR-Hwi" secondAttribute="trailing" constant="20" id="oz1-Ka-3dy"/>
+                <constraint firstAttribute="bottom" secondItem="AFC-x7-ysT" secondAttribute="bottom" id="tyn-hG-Z2D"/>
+                <constraint firstItem="Ebn-PR-Hwi" firstAttribute="leading" secondItem="AFC-x7-ysT" secondAttribute="trailing" id="vei-Tj-7u6"/>
+                <constraint firstAttribute="bottom" secondItem="Ebn-PR-Hwi" secondAttribute="bottom" id="yL3-W8-as6"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="playView" destination="Nzt-0P-7R0" id="b5D-sR-tXC"/>
+                <outlet property="slider" destination="AFC-x7-ysT" id="zMD-Cv-Kng"/>
+                <outlet property="timer" destination="Ebn-PR-Hwi" id="imG-gN-Ajg"/>
+            </connections>
+            <point key="canvasLocation" x="-146.37681159420291" y="-189.17410714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backgroup" width="902" height="430"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

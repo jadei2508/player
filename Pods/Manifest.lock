@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (5.4.3)
+  - Cartography (4.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Cartography
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Cartography
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Cartography: c5626d29056b20f1e95c017326ee4df57cc39ad8
+
+PODFILE CHECKSUM: b6c126211d7f4f9fdc114bda614d706a5ba50f20
+
+COCOAPODS: 1.10.0
